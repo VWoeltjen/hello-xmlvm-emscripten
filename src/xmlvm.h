@@ -380,10 +380,10 @@ XMLVM_DEFINE_CLASS(double_ARRAYTYPE, XMLVM_SIZE_OF_OBJECT_VTABLE, 0)
 //EMSCRIPTEN test notes:
 
 // The desired definition for XMLVM_SETJMP (which creates problems under -O1 or -O2):
-// #define XMLVM_SETJMP(env) setjmp(env)
+#define XMLVM_SETJMP(env) setjmp(env)
 
 // A definition that works under -O1 or -O2 (but omits all cross-compiled Java exception-handling)
-#define XMLVM_SETJMP(env) (0)
+//#define XMLVM_SETJMP(env) (0)
 
 #define XMLVM_LONGJMP(env) longjmp(env, 0)
 
